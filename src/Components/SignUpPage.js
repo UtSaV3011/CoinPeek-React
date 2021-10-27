@@ -1,16 +1,13 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Header from './Header'
 import MainSignUp from './MainSignUp'
-
- class SignUpPage extends Component {
-    render() {
-        return (
-            <div>
-                <Header/>
-                <MainSignUp handeler={this.props.handeler}/>
-            </div>
-        )
-    }
+function SignUpPage() {
+    return (
+        <div>
+            <Header />
+            <MainSignUp />
+        </div>
+    )
 }
 
 export default SignUpPage

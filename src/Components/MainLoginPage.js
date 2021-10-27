@@ -1,53 +1,48 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class MainLoginPage extends Component {
-    
-    constructor() {
-        super()
-        this.validate = this.validate.bind(this)
-    }
-
-    validate(event) {
-        event.preventDefault()
-        // console.log(localStorage.getItem(JSON.stringify(event.target.email.value)))
-        if (localStorage.getItem(JSON.stringify(event.target.email.value))) {
-            if (localStorage.getItem(JSON.stringify(event.target.email.value)) === event.target.password.value) {
-                // console.log(localStorage.getItem('isLoggedIn'))
-                // console.log(localStorage.getItem(JSON.stringify(event.target.email.value)))
-                // console.log(event.target.password.value)
-                this.props.login();
-            }
-            else {
-                alert('Incorrect')
-            }
+function handeler(event) {
+    event.preventDefault()
+    if (localStorage.getItem(event.target.email.value)) {
+        if (JSON.parse(localStorage.getItem(event.target.email.value)).password === event.target.password.value) {
+            var form = document.getElementById("myForm");
+            form.reset();
+            localStorage.setItem('isLoggedIn', JSON.stringify(true))
+            window.location.reload()
         }
         else {
-            alert('Incorrect')
+            alert('incorrect')
         }
     }
-    render() {
-        return (
-            <div className=" text-2xl h-full">
-                <form className=" font-semibold color-black  m-h-96 max-w-lg " onSubmit={this.validate}>
-                    <h1 className="h-8 text-3xl tracking-wider ">Login</h1>
-                    <label className="w-5" for="email">Email:
-                        <input className="w-48 border-black border-solid border-2 text-base tracking-wide h-6 mb-8 shadow-2xl pl-8 trasnition-all" type="email" id="email">
-                        </input>
-                    </label>
-                    <br />
-                    <label className="" for="password">Password:
-                        <input  className=" width- border-blue-600 border-solid border-2 text-base tracking-wide h-6 mb-8 shadow-2xl pl-8 trasnition-all " type="password" id="password"></input>
-                    </label>
-                    <br />
-                    <button type="submit" id="loginBTN">Log in</button>
-                    <br />
-                    <label for="signUpBTN" >New User ?</label>
-                    <br />
-                    <button onClick={this.props.handeler} type="button" id="signUpBTN" className="border-black">Sign up</button>
-                </form>
-            </div>
-        )
+    else {
+        alert('invalidID')
     }
+}
+function SignUpPage() {
+    localStorage.setItem('isSignUp', JSON.stringify(true))
+    window.location.reload()
+}
+
+function MainLoginPage() {
+    return (
+        <div className="p-8 bg-blue-700 text-2xl h-full w-full flex flex-col items-center">
+            <form id="myForm" className="p-8 bg-gray-200 rounded-3xl w-4/12 flex flex-col items-center font-semibold color-black  m-h-96 " onSubmit={handeler} >
+                <h1 className="m-8  h-8 text-3xl tracking-wider ">Login</h1>
+                <label className=" text-base text-center w-3/12 " for="email">Email</label>
+                <input className=" w-64 border-black border-solid border-2 text-center text-base tracking-wide h-6 shadow-2xl trasnition-all" type="email" name="email" id="email">
+                </input>
+                <br />
+                <label className="text-base text-center w-3/12" for="password">Password</label>
+                <input className=" text-center w-64 border-blue-600 border-solid border-2 text-base tracking-wide h-6  shadow-2xl  trasnition-all " name="password" type="password" id="password">
+                </input>
+                <br />
+                <button className="text-center bg-black p-2 py-1 text-xl w-2/6 text-white" type="submit" id="loginBTN">Log in</button>
+                <br />
+                <label for="signUpBTN" >New User ?</label>
+                <br />
+                <button onClick={SignUpPage} type="button" id="signUpBTN" className="text-center bg-black text-white p-2 py-1 text-xl w-2/6">Sign up</button>
+            </form>
+        </div>
+    )
 }
 
 export default MainLoginPage
