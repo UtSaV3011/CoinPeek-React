@@ -1,5 +1,4 @@
 import React from 'react'
-import Header from './Components/Header'
 import LoginPage from './Components/LoginPage'
 import MainPage from './Components/MainPage'
 import SignUpPage from './Components/SignUpPage'

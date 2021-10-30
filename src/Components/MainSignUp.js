@@ -22,26 +22,21 @@ function Loginpage() {
 
 function MainSignUpPage() {
     return (
-        <div className="p-8 bg-blue-700 text-2xl h-full w-full flex flex-col items-center" >
-            <form className="p-8 bg-gray-200 rounded-3xl w-4/12 flex flex-col items-center font-semibold color-black  m-h-96" onSubmit={SignUp}>
-                <h1 className="m-8  h-8 text-3xl tracking-wider ">SignUp</h1>
-                <label className=" text-base text-center w-3/12 " for="name">Full Name </label>
-                <input className=" w-64 border-black border-solid border-2 text-center text-base tracking-wide h-6 shadow-2xl trasnition-all" type="text" name="name" id="fullName" />
-                <br />
-                <label className=" text-base text-center w-3/12 " for="email">Email</label>
-                <input className=" w-64 border-black border-solid border-2 text-center text-base tracking-wide h-6 shadow-2xl trasnition-all" type="email" name="email" id="email" />
-                <br />
-                <label className=" text-base text-center w-3/12 " for="password">Password </label>
-                <input className=" w-64 border-black border-solid border-2 text-center text-base tracking-wide h-6 shadow-2xl trasnition-all" type="password" name="password" id="password" />
-                <br />
-                <label className=" text-base text-center w-3/12 " for="password2">Confirm Password </label>
-                <input className=" w-64 border-black border-solid border-2 text-center text-base tracking-wide h-6 shadow-2xl trasnition-all" type="password" name="password2" id="password2" />
-                <br />
-                <button className="text-center bg-black p-2 py-1 text-xl w-2/6 text-white" type="submit" id="signUpBTN" >Sign up</button>
-                <br />
-                <label for="login" className="btnLabel">Already a User?</label>
-                <br />
-                <button className="text-center bg-black p-2 py-1 text-xl w-2/6 text-white" onClick={Loginpage} type="button" id="loginBTN">Log in</button>
+        <div className="p-8 bg-Body text-2xl h-full w-full flex flex-col items-center h-v80" >
+            <form className="p-8 bg-Input rounded-3xl w-v60 max-w-lg flex flex-col items-center font-semibold color-black h-v75" onSubmit={SignUp}>
+                <h1 className=" mb-8 font-oxy h-8 text-3xl tracking-wider ">SignUp</h1>
+                <label className=" text-base text-left w-8/12 " for="name">Full Name </label>
+                <input className="mb-4 shadow-3xl focus:outline-none focus:shadow-4xl w-8/12 rounded border-none px-4 text-xs tracking-wide h-6" type="text" name="name" id="fullName" />
+                <label className=" text-base text-left w-8/12 " for="email">Email</label>
+                <input className="mb-4 shadow-3xl focus:outline-none focus:shadow-4xl w-8/12 rounded border-none px-4 text-base tracking-wide h-6" type="email" name="email" id="email" />
+                <label className="  text-base text-left w-8/12 " for="password">Password </label>
+                <input className="mb-4 shadow-3xl focus:outline-none focus:shadow-4xl w-8/12 rounded border-none px-4 text-base tracking-wide h-6" type="password" name="password" id="password" />
+                <label className=" text-base text-left w-8/12 " for="password2">Confirm Password </label>
+                <input className="mb-4 shadow-3xl focus:outline-none focus:shadow-4xl w-8/12 rounded border-none px-4 text-base tracking-wide h-6" type="password" name="password2" id="password2" />
+                <button className="mt-4 text-center shadow-3xl hover:bg-Header transition-all ease-linear bg-Body p-2 py-0.5 text-base box-border w-2/6 text-white" type="submit" id="signUpBTN" >Sign up</button>
+                <br/>
+                <label for="login" className=" mb-2 text-base">Already a User?</label>
+                <button className="text-center shadow-3xl hover:bg-Header transition-all ease-linear bg-Body p-2 py-0.5 text-base box-border w-2/6 text-white" onClick={Loginpage} type="button" id="loginBTN">Log in</button>
             </form>
         </div>
     )
